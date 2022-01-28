@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} Détail - {{ produit.libelle }}
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+        <article class="justify-center">
+
+            <h2>{{ produit.libelle }}</h2>
+            <ul>
+                <li>Catégorie - {{ produit.categorie.libelle }}</li>
+                <li>Prix - {{ produit.prix }}€</li>
+                <li>Reference - {{ produit.reference }}</li>
+                <li>Stock - {{ produit.stock }} unités</li>
+                <li>Ajouté le - {{ produit.dateAjout|date('d/m/Y') }}</li>
+            </ul>
+<button class="btn"><a href={{ path('produit_modifier',{'produit': produit.id})}} >Modifier</a> </button>
+
+        </article>
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent()  }}  Produits
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        <h1 class="text-center text-6xl">
+            Tous les produits
+        </h1>
+    {% endblock %}
+
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+
+        {% if produits %}
+
+            {% for prod in produits %}
+                <div class="text-center">
+                    <a href="{{ path('produit_detail', {'id': prod.id}) }}">{{ prod.libelle }}</a>
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <div class="text-center">bla</div>
+        {% endif %}
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock %}

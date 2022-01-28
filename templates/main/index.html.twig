@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent()  }}  Accueil
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        <h1 class="text-center text-6xl">
+            Bienvenue à l'Accueil
+        </h1>
+            {% endblock %}
+
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+
+        {% if produits %}
+
+        {% for p in produits %}
+            <div class="text-center"><a href="">{{ p.libelle }}</a> </div>
+        {% endfor %}
+
+        {% else %}
+            <div class="text-center">  Aucun produit à afficher </div>
+        {% endif %}
+
+        <div class="text-center">
+            <button class="btn-primary btn"> <a href="{{ path('produit_create') }}">Creez un produit</a></button>
+        </div>
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock %}

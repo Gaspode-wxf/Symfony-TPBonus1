@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent()  }}  Catégories
+{% endblock %}
+
+{% block body %}
+
+    {% block header %}
+        <h1 class="text-center text-6xl">
+            Toutes les catégories
+        </h1>
+    {% endblock %}
+
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block main %}
+
+        {% if categories %}
+
+            {% for cat in categories %}
+                <div class="text-center">
+                    {{ cat.libelle }}
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <div class="text-center">bla</div>
+        {% endif %}
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% endblock %}
