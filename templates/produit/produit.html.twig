@@ -16,13 +16,13 @@
     {% block main %}
 
         {% if produits %}
-
+<div class="container grid grid-rows-5 grid-flow-col gap-4 ">
             {% for prod in produits %}
                 <div class="text-center">
-                    <a href="{{ path('produit_detail', {'id': prod.id}) }}">{{ prod.libelle }}</a>
+                    <a class="btn" href="{{ path('produit_detail', {'id': prod.id}) }}">{{ prod.libelle }}</a>
                 </div>
             {% endfor %}
-
+</div>
         {% else %}
             <div class="text-center">bla</div>
         {% endif %}

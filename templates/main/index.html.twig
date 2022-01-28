@@ -17,16 +17,20 @@
 
     {% if produits %}
 <div class="container">
-        <div class="container">
+        <div class="container grid grid-rows-5 grid-flow-col gap-4">
         {% for p in produits %}
-            <div class="text-center"><a href="{{ path('produit_detail', {'id': p.id}) }}">{{ p.libelle }}</a> </div>
+            <div class="text-center">
+                <a class="btn" href="{{ path('produit_detail', {'id': p.id}) }}">{{ p.libelle }}</a>
+            </div>
         {% endfor %}
+
+
 </div>
     {% else %}
         <div class="text-center">  Aucun produit à afficher </div>
     {% endif %}
 
-    <div class="container text-center">
+    <div class="container text-center p-5">
         <button class="btn-primary btn"> <a href="{{ path('produit_create') }}">Creez un produit</a></button>
     </div>
     </div>
