@@ -32,40 +32,27 @@
 <body>
 {% block body %}
 
-        {% block header %}
-            <header class="container flex mx-auto">
-                Header-Placeholder
-            </header>
-        {% endblock %}
+{% block header %}
+    {# ajouter en argument du include {textHeader: "Texte à ajouter en titre de page"} #}
+{{ include('structure/header.html.twig',{textHeader: 'Header PlaceHolder'}) }}
+{% endblock %}
 
 
-        {% block nav %}
-            <nav class="container mx-auto flex place-content-around">
-
-                <a href="{{ path('main_home') }}">Accueil</a>
-
-                <a href="{{ path('produit_list') }}">Liste Produits</a>
-
-                <a href="{{ path('categorie_list') }}">Liste Catégories</a>
-
-            </nav>
-        {% endblock %}
+{{ include ('structure/navbar.html.twig') }}
 
 
-        {% block main %}
+
             <main class="container mx-auto flex">
+    {% block main %}
                 main-Placeholder
+    {% endblock %}
             </main>
-        {% endblock %}
 
 
-        {% block footer %}
-            <footer class="container mx-auto flex justify-center text-xs">
 
-                footer-Placeholder
 
-            </footer>
-        {% endblock %}
+{{ include('structure/footer.html.twig')}}
+
 
 
 {% endblock %}

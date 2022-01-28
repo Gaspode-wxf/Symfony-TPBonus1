@@ -10,6 +10,9 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+
+
         $categorieNames = ['Outil','Sport','Loisirs','Information','Alimentation','Autre'];
         foreach ($categorieNames as $categorieName)
         {
@@ -17,11 +20,6 @@ class AppFixtures extends Fixture
             $categorie->setLibelle($categorieName);
             $manager->persist($categorie);
         }
-
-
-        // $product = new Product();
-        // $manager->persist($product);
-
         $manager->flush();
     }
 }

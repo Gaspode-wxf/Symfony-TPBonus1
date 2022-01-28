@@ -4,28 +4,26 @@
     {{ parent()  }}  Catégories
 {% endblock %}
 
-{% block body %}
+
 
     {% block header %}
-        <h1 class="text-center text-6xl">
-            Toutes les catégories
-        </h1>
+
+        {{ include('structure/header.html.twig',{textHeader: "Toutes les catégories"}) }}
+
     {% endblock %}
 
-    {% block nav %}
-        {{ parent() }}
-    {% endblock %}
+
 
     {% block main %}
 
         {% if categories %}
-
+<div class="container">
             {% for cat in categories %}
                 <div class="text-center">
                     {{ cat.libelle }}
                 </div>
             {% endfor %}
-
+</div>
         {% else %}
             <div class="text-center">bla</div>
         {% endif %}
@@ -36,5 +34,6 @@
         {{ parent() }}
     {% endblock %}
 
-
+{% block body %}
+{{ parent() }}
 {% endblock %}

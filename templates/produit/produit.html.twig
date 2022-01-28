@@ -4,17 +4,14 @@
     {{ parent()  }}  Produits
 {% endblock %}
 
-{% block body %}
+
 
     {% block header %}
-        <h1 class="text-center text-6xl">
-            Tous les produits
-        </h1>
+        {{ include('structure/header.html.twig',{textHeader: "Liste des Produits"}) }}
+
     {% endblock %}
 
-    {% block nav %}
-        {{ parent() }}
-    {% endblock %}
+
 
     {% block main %}
 
@@ -32,9 +29,9 @@
 
     {% endblock %}
 
-    {% block footer %}
-        {{ parent() }}
-    {% endblock %}
 
 
+{% block body %}
+    {{ parent() }}
 {% endblock %}
+

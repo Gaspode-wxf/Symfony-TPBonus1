@@ -4,35 +4,31 @@
     {{ parent() }} Détail - {{ produit.libelle }}
 {% endblock %}
 
-{% block body %}
+
 
     {% block header %}
-        {{ parent() }}
+        {{ include('structure/header.html.twig',{textHeader: produit.libelle}) }}
+        <h2 class="text-3xl text-center">Vue détaillée</h2>
     {% endblock %}
 
-    {% block nav %}
-        {{ parent() }}
-    {% endblock %}
+
 
     {% block main %}
-        <article class="justify-center">
+        <article class="container text-center align-center">
 
-            <h2>{{ produit.libelle }}</h2>
-            <ul>
+
+            <ul class="justify-center align-center">
                 <li>Catégorie - {{ produit.categorie.libelle }}</li>
                 <li>Prix - {{ produit.prix }}€</li>
                 <li>Reference - {{ produit.reference }}</li>
                 <li>Stock - {{ produit.stock }} unités</li>
                 <li>Ajouté le - {{ produit.dateAjout|date('d/m/Y') }}</li>
             </ul>
-<button class="btn"><a href={{ path('produit_modifier',{'produit': produit.id})}} >Modifier</a> </button>
+<button class="btn"><a href={{ path('produit_modifier',{'id': produit.id})}} >Modifier</a> </button>
 
         </article>
     {% endblock %}
 
-    {% block footer %}
-        {{ parent() }}
-    {% endblock %}
-
-
+{% block body %}
+    {{ parent() }}
 {% endblock %}

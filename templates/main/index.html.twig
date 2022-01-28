@@ -4,39 +4,36 @@
     {{ parent()  }}  Accueil
 {% endblock %}
 
-{% block body %}
 
-    {% block header %}
-        <h1 class="text-center text-6xl">
-            Bienvenue à l'Accueil
-        </h1>
-            {% endblock %}
 
-    {% block nav %}
-        {{ parent() }}
-    {% endblock %}
+{% block header %}
+    {{ include('structure/header.html.twig',{textHeader: "Bienvenue à l'Accueil"}) }}
+{% endblock %}
 
-    {% block main %}
 
-        {% if produits %}
 
+
+{% block main %}
+
+    {% if produits %}
+<div class="container">
+        <div class="container">
         {% for p in produits %}
-            <div class="text-center"><a href="">{{ p.libelle }}</a> </div>
+            <div class="text-center"><a href="{{ path('produit_detail', {'id': p.id}) }}">{{ p.libelle }}</a> </div>
         {% endfor %}
+</div>
+    {% else %}
+        <div class="text-center">  Aucun produit à afficher </div>
+    {% endif %}
 
-        {% else %}
-            <div class="text-center">  Aucun produit à afficher </div>
-        {% endif %}
-
-        <div class="text-center">
-            <button class="btn-primary btn"> <a href="{{ path('produit_create') }}">Creez un produit</a></button>
-        </div>
-
-    {% endblock %}
-
-    {% block footer %}
-        {{ parent() }}
-    {% endblock %}
+    <div class="container text-center">
+        <button class="btn-primary btn"> <a href="{{ path('produit_create') }}">Creez un produit</a></button>
+    </div>
+    </div>
+{% endblock %}
 
 
+
+{% block body %}
+    {{ parent() }}
 {% endblock %}

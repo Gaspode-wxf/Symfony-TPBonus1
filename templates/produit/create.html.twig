@@ -4,10 +4,11 @@
     {{ parent() }}
 {% endblock %}
 
-{% block body %}
+
 
     {% block header %}
-        {{ parent() }}
+        {{ include('structure/header.html.twig',{textHeader: "Ajoutez votre produit"}) }}
+
     {% endblock %}
 
     {% block nav %}
@@ -24,9 +25,8 @@
         {{ form_end(produitForm) }}
     {% endblock %}
 
-    {% block footer %}
-        {{ parent() }}
-    {% endblock %}
 
 
+{% block body %}
+    {{ parent() }}
 {% endblock %}

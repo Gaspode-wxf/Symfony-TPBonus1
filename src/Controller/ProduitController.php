@@ -77,13 +77,39 @@ class ProduitController extends AbstractController
     /**
      * @Route("/modifier/{id}", name="modifier")
      */
-    public function modifier(EntityManagerInterface $entityManager, int $id) : Response
+    public function modifier(EntityManagerInterface $entityManager, int $id, Request $request) : Response
     {
+        //init produit
+        $produit = $entityManager->getRepository('App:Produit')->find($id);
+
+        //init form
+
+        $produitForm = $this->createForm(ProduitType::class,$produit);
+
+        // hydrate
+        $produitForm->handleRequest($request);
+
+        // verif form
+
+        if($produitForm->isSubmitted())
+        {
+
+            $entityManager->persist($produit);
+            $entityManager->flush();
+            return $this->redirectToRoute('main_home',[
 
 
-        return $this->render('produit/modifier.html.twig',[
+            ]);
+        }
 
-            'produit' => $id,
+        return $this->renderForm('produit/modifier.html.twig',[
+            'produitForm'=>$produitForm,
+            'produit'=> $produit
         ]);
+
+
     }
+
+
+
 }

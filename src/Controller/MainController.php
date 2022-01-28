@@ -2,9 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Categorie;
-use App\Repository\CategorieRepository;
-use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
